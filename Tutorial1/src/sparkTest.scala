@@ -49,6 +49,15 @@ object scalaTest{
     //this takes these key value pairs and reduces them, aggregating the words
     val output = wc.reduceByKey(_+_).sortByKey() //we then sort by the key values, ie the words to order the pairs
 
+
+    //this will sort it in count order from most count to least count
+    //referenced:
+    //http://stackoverflow.com/questions/24656696/spark-get-collection-sorted-by-value
+    //val output = wc.reduceByKey(_ + _, 1)  // 2nd arg configures one task (same as number of partitions)
+    //  .map(item => item.swap)
+    //  .sortByKey(false, 1)
+    //  .map(item => item.swap)
+
     //and we save it.
     output.saveAsTextFile("output")
   }
