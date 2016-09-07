@@ -1,0 +1,5 @@
+--this is printed to the command screen--
+
+Both count =1734
+A count =18995
+B count =11102
