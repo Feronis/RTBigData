@@ -281,8 +281,9 @@ public class MainFrameDetection {
         if(!hasRun){
             //this will find all the similarities, we can pick which ones we don't want later
             //it'll take the same amount of time.
-
             MainFrames(1.0);
+            hasRun=true;
+            MainFrames(lowBound, upperBound);
         }
         else{
 
