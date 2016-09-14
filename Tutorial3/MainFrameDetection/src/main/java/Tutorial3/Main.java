@@ -14,7 +14,7 @@ public class Main {
         MainFrameDetection mFD = new MainFrameDetection(path);
         mFD.Frames();
         //set true if you have all ready found the similarities of frames
-        //mFD.sethasRun(true);
+        mFD.sethasRun(true);
         mFD.MainFrames(20,30);
         VideoReConsc vr = new VideoReConsc();
 

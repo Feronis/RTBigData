@@ -79,6 +79,7 @@ public class MainFrameDetection {
             MBFImage b = mbfImage.clone();
             imageList.add(b);
             timeStamp.add(video.getTimeStamp());
+            numberImages++;
         }
 
         System.out.println("The total frames are:" + j);
@@ -124,9 +125,6 @@ public class MainFrameDetection {
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
-
-
-                numberImages++;
             }
         }
     }
