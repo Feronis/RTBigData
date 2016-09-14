@@ -1,5 +1,6 @@
 package Tutorial3;
 
+import org.apache.commons.io.FileUtils;
 import org.openimaj.feature.local.list.LocalFeatureList;
 import org.openimaj.feature.local.matcher.FastBasicKeypointMatcher;
 import org.openimaj.feature.local.matcher.LocalFeatureMatcher;
@@ -36,7 +37,7 @@ public class MainFrameDetection {
     private String path;
     private int numberImages = 0;
     private int afterImages = 0;
-    private boolean hasRun = true;
+    private boolean hasRun = false;
 
 
     public MainFrameDetection(String path){
@@ -295,6 +296,14 @@ public class MainFrameDetection {
 
             double candSens = Double.parseDouble(files[lowBound-1].getName().split("_")[1].split(".jpg")[0]);
 
+            File realFrames = new File("output/realFrames");
+            try {
+                FileUtils.cleanDirectory(realFrames);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+
             for(int i = 0; i < files.length; i++){
                 double test = Double.parseDouble(files[i].getName().split("_")[1].split(".jpg")[0]);
                 if(test <= candSens){
@@ -308,7 +317,9 @@ public class MainFrameDetection {
                         e.printStackTrace();
                     }
                     afterImages++;
+                    System.out.println(afterImages);
                     if(afterImages == upperBound){
+                        System.out.println("ending it");
                         i = files.length;
                     }
                 }

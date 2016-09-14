@@ -13,10 +13,15 @@ public class Main {
         String path = "data/Ray_MovieS2.mkv";
         MainFrameDetection mFD = new MainFrameDetection(path);
         mFD.Frames();
+        //set true if you have all ready found the similarities of frames
+        mFD.sethasRun(true);
         mFD.MainFrames(20,30);
         File reconFile = new File("output/realframes");
         VideoReConsc vr = new VideoReConsc();
         vr.createVideo(reconFile);
+
+        int original = mFD.getNumberImages();
+        int after = mFD.getAfterImages();
 
 
     }
